@@ -1,0 +1,72 @@
+.card-container {
+    margin-top: 20vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the cards horizontally */
+    gap: 10px; /* Adjust the gap between cards */
+}
+
+.card {
+    flex: 0 1 calc(33.33% - 20px); /* Adjust the width and gap based on your needs */
+    margin: 10px;
+    background: url(https://tse4.mm.bing.net/th?id=OIP.RxfjL6YRjSwrArxkfhAu8AHaEK&pid=Api&P=0&h=180);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+   /* background-color: #bf1f82;*/
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-description {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.card-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-top: 1px solid #ddd;
+}
+
+.add-to-cart {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 768px) {
+    .card-container {
+        flex-direction: column;
+        align-items: center; /* Center the cards vertically */
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+h2{
+    color: whitesmoke;
+}

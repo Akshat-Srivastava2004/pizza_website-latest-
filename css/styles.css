@@ -1,0 +1,86 @@
+/* Reset some default browser styles */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply background color and text styles to the body */
+body {
+    background-color: #eeeef0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+/* Center the content vertically and horizontally */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Apply background color and text styles to the header */
+header {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 20px;
+}
+
+/* Style the pizza menu section */
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+}
+
+.pizza {
+    width: 300px;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    background-color: #f9f9f9;
+}
+
+.pizza img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Style the pizza titles */
+.pizza h3 {
+    color: #333;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+/* Style the order buttons */
+button {
+    background-color: #ff6600;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff4500;
+}
+
+/* Style the footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
