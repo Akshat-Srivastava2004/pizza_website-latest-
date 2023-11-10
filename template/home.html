@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mainbody %}
+<br><br><br>
+
+    <style>
+        .menu {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 20vh;
+            margin-left: 100px;
+            margin-bottom: 20vh;
+        }
+    
+        .pizza {
+            flex: 0 0 calc(33.33% - 20px); /* Three items in a row with 20px gap */
+            text-align: center;
+        }
+    
+        .pizza img {
+            max-width: 100%;
+        }
+    </style>
+        <section class="menu">
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza" style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+    
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza"  style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+    
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza"  style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+    
+            <!-- Repeat this structure for the other items -->
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza"  style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza"  style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+            <div class="pizza">
+                <img src="{% static 'img/mimage.jpg' %}" alt="Margherita Pizza"  style="width: 300px;">
+                <h3>Margherita Pizza</h3>
+                <p>Classic tomato sauce and mozzarella cheese</p>
+                <button><a href="{% url 'Order' %}">Order Now</a></button>
+            </div>
+        </section>
+  
+{% endblock mainbody %}
+

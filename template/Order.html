@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- ... (Your meta tags and styles here) ... -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Dropdowns</title>
+    <style>
+        body {
+            background: url(https://thumbs.dreamstime.com/z/slices-delicious-pizza-light-background-top-view-slices-delicious-pizza-light-background-118895971.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height:100vh ;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background: url(https://tse1.mm.bing.net/th?id=OIP.-MIiSThaHhwrPuJ8-W_sGwAAAA&pid=Api&P=0&h=180);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20vh;
+            padding: 10px;
+            background-color: #2f2727;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin: 20px 0;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+        }
+
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form-group select option {
+            font-size: 16px;
+        }
+
+        .form-group button {
+            background-color: #ff7f50;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #ff6347;
+        }
+        a {
+  text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Pizza Website</h2>
+
+        <form method="post" action="{% url 'Order' %}">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label for="pizzaName">Pizza Name</label>
+                <select id="pizzaName" name="pizza_Name">
+                    <option value="" name="pizza_Name">Choose your pizza</option>
+                    {% for pizza in Pizza_detail %}
+                        <option value="{{ pizza.name }}" >{{ pizza.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="pizzaSize">Pizza Size</label>
+                <select id="pizzaSize" name="pizza_Size">
+                    <option value="" name="pizza_Size">Choose your pizza size</option>
+                    {% for pizza in Pizza_detail %}
+                        <option value="{{ pizza.size }}" >{{ pizza.size }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dropdown3">Pizza Price</label>
+                <select id="dropdown3" name="pizza_price">
+                    <option value="" name="pizza_price">Select prize</option>
+                    {% for pizza in Pizza_detail %}
+                        <option value="{{ pizza.price }}">{{ pizza.price }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dropdown4">Pizza description</label>
+                <select id="dropdown4" name="pizza_description">
+                    {% for pizza in Pizza_detail %}
+                        <option value="{{ pizza.description }}">{{ pizza.description }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Order Now</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

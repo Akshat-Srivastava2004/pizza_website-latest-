@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mainbody %}
+<style>
+	/* Add your custom CSS styles here */
+
+	/* Styling for the chatbot container */
+	.chatbot-container {
+		display: none;
+		background-color: #389bed;
+		border-radius: 10px;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		width: 300px;
+	}
+
+	.chatbot-header {
+		background-color: #1a9dcd;
+		color: #fff;
+		padding: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+	}
+
+	.chatbot-content {
+		padding: 20px;
+		max-height: 300px;
+		overflow-y: auto;
+	}
+
+	/* Styling for the chatbot button */
+	.chatbot-button {
+		background-color: #2065e3;
+		color: #fff;
+		border: none;
+		padding: 10px 20px;
+		border-radius: 5px;
+		cursor: pointer;
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+	}
+
+	/* Styling for user and chatbot messages */
+	.user-message {
+		text-align: right;
+		margin-top: 10px;
+	}
+
+	.chatbot-message {
+		text-align: left;
+		margin-top: 10px;
+	}
+</style>
+<section id="contact" class="templatemo-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2 class="text-uppercase text-center" style="color: red;">Contact Us</h2>
+                <hr>
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <!-- Chatbot button -->
+                <button class="chatbot-button" onclick="toggleChatbot()">Open Chat</button>
+                <!-- Chatbot container -->
+                <div class="chatbot-container">
+                    <div class="chatbot-header">
+                        Chat with us
+                    </div>
+                    <div class="chatbot-content" id="chatbot-content">
+                        <div class="chatbot-message">
+                            <p>Welcome to our Toptoppings pizza website! How can we assist you today?</p>
+                        </div>
+                    </div>
+                    <input type="text" id="user-input" placeholder="Type your message">
+                    <button onclick="sendMessage()">Send</button>
+                </div>
+
+                <!-- Form for Contact Us -->
+                <form method="post">
+                    {% csrf_token %}
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        <strong></strong>{{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                    {% endfor %}
+                    <div class="col-md-6 col-sm-6">
+                        <input name="name" type="text" class="form-control" id="name" maxlength="60" placeholder="Name">
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Email">
+                        <input name="subject" type="text" class="form-control" id="message" placeholder="Subject">
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <textarea class="form-control" rows="5" placeholder="Message" name="message"></textarea>
+                    </div>
+                    <div class="col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6">
+                        <input name="submit" type="submit" class="form-control" id="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+	var chatbotContainer = document.querySelector(".chatbot-container");
+    var chatbotContent = document.getElementById("chatbot-content");
+
+    var responses = [,
+        "Great to hear from you! We'll respond as soon as possible."
+    ];
+
+    function toggleChatbot() {
+        chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
+    }
+
+    function sendMessage() {
+        var userMessage = document.getElementById("user-input").value;
+        addUserMessage(userMessage);
+        var randomResponse = getRandomResponse();
+        addChatbotMessage(randomResponse);
+        document.getElementById("user-input").value = "";
+    }
+
+    function addUserMessage(message) {
+        var userMessage = document.createElement("div");
+        userMessage.className = "user-message";
+        userMessage.innerHTML = "<p>" + message + "</p>";
+        chatbotContent.appendChild(userMessage);
+    }
+
+    function addChatbotMessage(message) {
+        var chatbotMessage = document.createElement("div");
+        chatbotMessage.className = "chatbot-message";
+        chatbotMessage.innerHTML = "<p>" + message + "</p>";
+        chatbotContent.appendChild(chatbotMessage);
+    }
+
+    function getRandomResponse() {
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+	function toggleChatbot() {
+    chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
+}
+function toggleChatbot() {
+    console.log("Toggle chatbot button clicked");
+    chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
+}
+
+    var chatbotContainer = document.querySelector(".chatbot-container");
+    var chatbotContent = document.getElementById("chatbot-content");
+    // Your chatbot JavaScript code here...
+</script>
+{% endblock mainbody %}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Pizza Website</title>
+    <style>
+        /* Add your custom CSS styles here */
+
+        /* Styling for the chatbot container */
+        .chatbot-container {
+            display: none;
+            background-color: #389bed;
+            border-radius: 10px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+        }
+
+        .chatbot-header {
+            background-color: #1a9dcd;
+            color: #fff;
+            padding: 10px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+
+        .chatbot-content {
+            padding: 20px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        /* Styling for the chatbot button */
+        .chatbot-button {
+            background-color: #2065e3;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        /* Styling for user and chatbot messages */
+        .user-message {
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .chatbot-message {
+            text-align: left;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Add the chatbot button to your website -->
+<button class="chatbot-button" onclick="toggleChatbot()">Open Chat</button>
+
+<!-- Add the chatbot container to your website -->
+<div class="chatbot-container">
+    <div class="chatbot-header">
+        Chat with us
+    </div>
+    <div class="chatbot-content" id="chatbot-content">
+        <div class="chatbot-message">
+            <p>Welcome to our Toptoppings pizza website! How can we assist you today?</p>
+        </div>
+    </div>
+    <input type="text" id="user-input" placeholder="Type your message">
+    <button onclick="sendMessage()">Send</button>
+</div>
+
+<!-- JavaScript for the dynamic chatbot -->
+<script>
+    var chatbotContainer = document.querySelector(".chatbot-container");
+    var chatbotContent = document.getElementById("chatbot-content");
+
+    var responses = [,
+        "Great to hear from you! We'll respond as soon as possible."
+    ];
+
+    function toggleChatbot() {
+        chatbotContainer.style.display = chatbotContainer.style.display === "block" ? "none" : "block";
+    }
+
+    function sendMessage() {
+        var userMessage = document.getElementById("user-input").value;
+        addUserMessage(userMessage);
+        var randomResponse = getRandomResponse();
+        addChatbotMessage(randomResponse);
+        document.getElementById("user-input").value = "";
+    }
+
+    function addUserMessage(message) {
+        var userMessage = document.createElement("div");
+        userMessage.className = "user-message";
+        userMessage.innerHTML = "<p>" + message + "</p>";
+        chatbotContent.appendChild(userMessage);
+    }
+
+    function addChatbotMessage(message) {
+        var chatbotMessage = document.createElement("div");
+        chatbotMessage.className = "chatbot-message";
+        chatbotMessage.innerHTML = "<p>" + message + "</p>";
+        chatbotContent.appendChild(chatbotMessage);
+    }
+
+    function getRandomResponse() {
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block mainbody %}
+
+<center>
+        <h1 style="margin-top: 20vh; color: red;">Delicious Pizza Recipe</h1>
+    </center>
+    <div class="container">
+        <img src="{% static 'img/Cheesy-slice-of-pizza.png.webp' %}" style="height: 40vh;">
+        <h2 class="recipe-title"  style="color: red;">Margherita Pizza</h2>
+        <h3  style="color: red;">Ingredients:</h3>
+        <ul class="recipe-ingredients">
+            <li>1 pizza dough</li>
+            <li>1/2 cup tomato sauce</li>
+            <li>1 1/2 cups mozzarella cheese, shredded</li>
+            <li>Fresh basil leaves</li>
+            <li>Olive oil</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h3  style="color: red;">Instructions:</h3>
+        <ol class="recipe-instructions">
+            <li>Preheat your oven to 475°F (245°C).</li>
+            <li>Roll out the pizza dough on a floured surface to your desired thickness.</li>
+            <li>Transfer the dough to a pizza stone or baking sheet.</li>
+            <li>Spread the tomato sauce evenly over the dough, leaving a border for the crust.</li>
+            <li>Sprinkle mozzarella cheese over the sauce.</li>
+            <li>Add fresh basil leaves on top.</li>
+            <li>Drizzle a little olive oil and season with salt and pepper.</li>
+            <li>Bake in the preheated oven for 12-15 minutes or until the crust is golden and the cheese is bubbly.</li>
+            <li>Remove from the oven, slice, and enjoy your delicious Margherita pizza!</li>
+        </ol>
+    </div>
+    <center><h1  style="color: red;">More recipe Comming Soon stay connected with TopToppingsPizza</h1></center>ss
+{% endblock mainbody %}
